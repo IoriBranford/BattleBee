@@ -26,13 +26,13 @@ public class EnemySpawner : MonoBehaviour {
 		}
 		_time = 0;
 
-		Vector3 cameraBL = Camera.main.ViewportToWorldPoint
-			(new Vector3 (0, 0, 0));
-		Vector3 cameraCenter = Camera.main.ViewportToWorldPoint
-			(new Vector3 (.5f, .5f, 0));
+		//Vector3 cameraBL = Camera.main.ViewportToWorldPoint
+		//	(new Vector3 (0, 0, 0));
+		//Vector3 cameraCenter = Camera.main.ViewportToWorldPoint
+		//	(new Vector3 (.5f, .5f, 0));
 
-		_ampX = (cameraCenter - cameraBL).x - width*.5f;
-		_freqX = 2;
+		_ampX = width*.25f;
+		_freqX = 1;
 	}
 	
 	// Update is called once per frame

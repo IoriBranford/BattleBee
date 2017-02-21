@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	public float speed = 1;
+	public float bulletSpeed = 1;
+	public float bulletInterval = 1;
+	public GameObject bulletPrefab;
+
 	private Bounds _bounds;
+	private bool _fireButton;
 
 	// Use this for initialization
 	void Start () {
@@ -28,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		_bounds.min = min;
 		_bounds.max = max;
+		 _fireButton = false;
 	}
 	
 	// Update is called once per frame
@@ -41,5 +47,24 @@ public class PlayerController : MonoBehaviour {
 		position.y = Mathf.Clamp (position.y,
 				_bounds.min.y, _bounds.max.y);
 		transform.position = position;
+
+		float fireAxis = Input.GetAxis("Fire1");
+		if (!_fireButton && fireAxis > 0) {
+			InvokeRepeating("Fire", 1f/1024f, bulletInterval);
+		} else if (_fireButton && fireAxis <= 0) {
+			CancelInvoke("Fire");
+		}
+		_fireButton = fireAxis > 0;
+	}
+
+	void Fire () {
+		GameObject bullet = Instantiate(bulletPrefab,
+				transform.position,
+				Quaternion.identity);
+
+		var bulletBody = bullet.GetComponent<Rigidbody2D>();
+		bulletBody.AddForce(
+				new Vector2(0, bulletSpeed) * bulletBody.mass,
+				ForceMode2D.Impulse);
 	}
 }
