@@ -58,13 +58,23 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Fire () {
+		Vector3 fireDirection = Vector3.up;
+
 		GameObject bullet = Instantiate(bulletPrefab,
-				transform.position,
+				transform.position + 1.5f*fireDirection,
 				Quaternion.identity);
 
 		var bulletBody = bullet.GetComponent<Rigidbody2D>();
 		bulletBody.AddForce(
-				new Vector2(0, bulletSpeed) * bulletBody.mass,
+				fireDirection * bulletSpeed * bulletBody.mass,
 				ForceMode2D.Impulse);
+	}
+
+	void OnTriggerEnter2D (Collider2D collider) {
+		Bullet bullet = collider.gameObject.GetComponent<Bullet>();
+		if (bullet) {
+			Debug.Log("OUCH!");
+			//Destroy(gameObject);
+		}
 	}
 }
