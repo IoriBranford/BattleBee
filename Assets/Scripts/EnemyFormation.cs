@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemyFormation : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public float width = 10f;
 	public float height = 5f;
@@ -31,10 +31,10 @@ public class EnemySpawner : MonoBehaviour {
 		//Vector3 cameraCenter = Camera.main.ViewportToWorldPoint
 		//	(new Vector3 (.5f, .5f, 0));
 
-		_ampX = width*.25f;
+		_ampX = width*.125f;
 		_freqX = 1;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		Vector3 position = transform.position;

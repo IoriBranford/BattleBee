@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212488982048664490}
   - component: {fileID: 50542521343974806}
   - component: {fileID: 61671876604349366}
+  - component: {fileID: 114012659011872226}
   m_Layer: 0
   m_Name: BeeSting
   m_TagString: Untagged
@@ -76,6 +77,18 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
+--- !u!114 &114012659011872226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1223452807823128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1a91a5473dc0d4ea11ae458eb7ffdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!212 &212488982048664490
 SpriteRenderer:
   m_ObjectHideFlags: 1

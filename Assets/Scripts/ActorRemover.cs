@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletRemover : MonoBehaviour {
+public class ActorRemover : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collider) {
 		Destroy(collider.gameObject);
 	}
