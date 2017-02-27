@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour {
+	public int killPoints = 110;
 	public float health = 1;
 	public float bulletSpeed = 1;
 	public float bulletInterval = 1;
@@ -50,6 +51,10 @@ public class EnemyBehaviour : MonoBehaviour {
 			_damage += bullet.Damage();
 			if (_damage >= health) {
 				Destroy(gameObject);
+				var score = GameObject.FindObjectOfType
+					<ScoreKeeper>();
+
+				score.AddPoints(killPoints);
 			}
 		}
 	}
