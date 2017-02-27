@@ -16,8 +16,7 @@ public class EnemyFormation : MonoBehaviour {
 				new Vector3 (width, height));
 	}
 
-	// Use this for initialization
-	void Start () {
+	void SpawnEnemies () {
 		foreach (Transform child in transform) {
 			GameObject enemy = Instantiate (enemyPrefab,
 					child.transform.position,
@@ -25,6 +24,11 @@ public class EnemyFormation : MonoBehaviour {
 			enemy.transform.SetParent(child);
 		}
 		_time = 0;
+	}
+
+	// Use this for initialization
+	void Start () {
+		SpawnEnemies();
 
 		//Vector3 cameraBL = Camera.main.ViewportToWorldPoint
 		//	(new Vector3 (0, 0, 0));
@@ -41,5 +45,20 @@ public class EnemyFormation : MonoBehaviour {
 		_time += Time.deltaTime;
 		position.x = _ampX * Mathf.Sin(_time * _freqX);
 		transform.position = position;
+
+		if (EnemiesAllDead()) {
+			if (!IsInvoking("SpawnEnemies")) {
+				Invoke("SpawnEnemies", 2);
+			}
+		}
+	}
+
+	bool EnemiesAllDead () {
+		foreach (Transform child in transform) {
+			if (child.childCount > 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 }
