@@ -15,10 +15,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Friendly
+  - Enemy
+  - FriendlyBullet
+  - EnemyBullet
   - 
   - 
   - 
