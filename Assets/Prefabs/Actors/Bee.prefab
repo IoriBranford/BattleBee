@@ -93,6 +93,8 @@ MonoBehaviour:
   bulletInterval: 0.125
   bulletPrefab: {fileID: 1223452807823128, guid: 9d84406323317044f8bc6f50ec751f58,
     type: 2}
+  bulletSound: {fileID: 8300000, guid: ef424440cbf9d204b82a05a9c29ba68c, type: 3}
+  deathSound: {fileID: 8300000, guid: ee32e7922aede124dbea64902d2a552d, type: 3}
 --- !u!212 &212398117421781562
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -122,7 +124,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1985655239
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e03c57a12516728489c1cfc3e3304e46, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

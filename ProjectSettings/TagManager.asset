@@ -43,3 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Enemy
+    uniqueID: 344618751
+    locked: 0
+  - name: FriendlyBullet
+    uniqueID: 3339152761
+    locked: 0
+  - name: Friendly
+    uniqueID: 2309312057
+    locked: 0
+  - name: Explosion
+    uniqueID: 2291503045
+    locked: 0
+  - name: EnemyBullet
+    uniqueID: 2191103679
+    locked: 0

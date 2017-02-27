@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 	public float bulletSpeed = 1;
 	public float bulletInterval = 1;
 	public GameObject bulletPrefab;
+	public AudioClip bulletSound;
+	public AudioClip deathSound;
 
 	private Bounds _bounds;
 	private bool _fireButton;
@@ -68,13 +70,21 @@ public class PlayerController : MonoBehaviour {
 		bulletBody.AddForce(
 				fireDirection * bulletSpeed * bulletBody.mass,
 				ForceMode2D.Impulse);
+
+		if (bulletSound) {
+			AudioSource.PlayClipAtPoint(bulletSound,
+					transform.position);
+		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
 		Bullet bullet = collider.gameObject.GetComponent<Bullet>();
 		if (bullet) {
-			Debug.Log("OUCH!");
-			//Destroy(gameObject);
+			Destroy(gameObject);
+			if (deathSound) {
+				AudioSource.PlayClipAtPoint(deathSound,
+						transform.position);
+			}
 		}
 	}
 }

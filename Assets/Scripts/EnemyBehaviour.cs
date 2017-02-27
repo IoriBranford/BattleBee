@@ -8,6 +8,7 @@ public class EnemyBehaviour : MonoBehaviour {
 	public float bulletSpeed = 1;
 	public float bulletInterval = 1;
 	public GameObject bulletPrefab;
+	public AudioClip deathSound;
 
 	private float _damage;
 
@@ -55,6 +56,11 @@ public class EnemyBehaviour : MonoBehaviour {
 					<ScoreKeeper>();
 
 				score.AddPoints(killPoints);
+
+				if (deathSound) {
+					AudioSource.PlayClipAtPoint(deathSound,
+							transform.position);
+				}
 			}
 		}
 	}
