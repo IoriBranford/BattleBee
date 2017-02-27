@@ -6,6 +6,7 @@ public class EnemyFormation : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public float width = 10f;
 	public float height = 5f;
+	public float spawnDelay = 1f/64;
 
 	private float _ampX;
 	private float _freqX;
@@ -14,6 +15,20 @@ public class EnemyFormation : MonoBehaviour {
 	void OnDrawGizmos () {
 		Gizmos.DrawWireCube(transform.position,
 				new Vector3 (width, height));
+	}
+
+	void SpawnEnemiesGradually () {
+		Transform position = FindFreePosition();
+		if (position) {
+			GameObject enemy = Instantiate (enemyPrefab,
+					position.position,
+					Quaternion.identity);
+			enemy.transform.SetParent(position);
+		}
+
+		if (FindFreePosition()) {
+			Invoke("SpawnEnemiesGradually", spawnDelay);
+		}
 	}
 
 	void SpawnEnemies () {
@@ -28,7 +43,7 @@ public class EnemyFormation : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		SpawnEnemies();
+		SpawnEnemiesGradually();
 
 		//Vector3 cameraBL = Camera.main.ViewportToWorldPoint
 		//	(new Vector3 (0, 0, 0));
@@ -47,10 +62,19 @@ public class EnemyFormation : MonoBehaviour {
 		transform.position = position;
 
 		if (EnemiesAllDead()) {
-			if (!IsInvoking("SpawnEnemies")) {
-				Invoke("SpawnEnemies", 2);
+			if (!IsInvoking("SpawnEnemiesGradually")) {
+				Invoke("SpawnEnemiesGradually", 2);
 			}
 		}
+	}
+
+	Transform FindFreePosition () {
+		foreach (Transform child in transform) {
+			if (child.childCount == 0) {
+				return child;
+			}
+		}
+		return null;
 	}
 
 	bool EnemiesAllDead () {
