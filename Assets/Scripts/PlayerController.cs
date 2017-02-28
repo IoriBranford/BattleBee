@@ -80,11 +80,17 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D (Collider2D collider) {
 		Bullet bullet = collider.gameObject.GetComponent<Bullet>();
 		if (bullet) {
-			Destroy(gameObject);
 			if (deathSound) {
 				AudioSource.PlayClipAtPoint(deathSound,
 						transform.position);
 			}
+			GameOver();
+			Destroy(gameObject);
 		}
+	}
+
+	void GameOver () {
+		var levelManager = GameObject.FindObjectOfType<LevelManager> ();
+		levelManager.LoadLevel("Lose");
 	}
 }

@@ -3,8 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundController : MonoBehaviour {
-	public float speedY = 1f;
+	static BackgroundController _instance;
 
+	void Awake () {
+		if (_instance == null) {
+			GameObject.DontDestroyOnLoad(gameObject);
+			_instance = this;
+		} else {
+			Destroy(gameObject);
+		}
+	}
+
+	public float speedY = 1f;
+/*
 	private float _maxOffsetX;
 
 	// Use this for initialization
@@ -19,13 +30,13 @@ public class BackgroundController : MonoBehaviour {
 		float width = transform.localScale.x;
 		_maxOffsetX = 1f - (cameraW / width);
 	}
-
+*/
 	// Update is called once per frame
 	void Update () {
 		var renderer = GetComponent<MeshRenderer>();
 		Material material = renderer.material;
 		Vector2 offset = material.mainTextureOffset;
-
+/*
 		var player = GameObject.FindObjectOfType<PlayerController>();
 		var camera = Camera.main;
 		if (player && camera) {
@@ -34,7 +45,7 @@ public class BackgroundController : MonoBehaviour {
 
 			offset.x = playerVPPos.x * _maxOffsetX;
 		}
-
+*/
 		offset.y += Time.deltaTime * speedY;
 
 		material.mainTextureOffset = offset;

@@ -88,12 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e5188fa0eccd447942c4e68e74df69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 12
   bulletSpeed: 64
   bulletInterval: 0.125
   bulletPrefab: {fileID: 1223452807823128, guid: 9d84406323317044f8bc6f50ec751f58,
     type: 2}
-  bulletSound: {fileID: 8300000, guid: ef424440cbf9d204b82a05a9c29ba68c, type: 3}
+  bulletSound: {fileID: 8300000, guid: 2cd1a00bb477f5d47a3b65a4633c735b, type: 3}
   deathSound: {fileID: 8300000, guid: ee32e7922aede124dbea64902d2a552d, type: 3}
 --- !u!212 &212398117421781562
 SpriteRenderer:
