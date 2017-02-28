@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114236140288943068}
   - component: {fileID: 50269061926171824}
   - component: {fileID: 61902066748166904}
+  - component: {fileID: 95424906071891164}
   m_Layer: 8
   m_Name: Bee
   m_TagString: Untagged
@@ -77,6 +78,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
+--- !u!95 &95424906071891164
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1893391056456198}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9ffd2fe6898803459916c595e95b170, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114236140288943068
 MonoBehaviour:
   m_ObjectHideFlags: 1
