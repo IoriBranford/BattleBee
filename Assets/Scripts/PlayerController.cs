@@ -91,6 +91,6 @@ public class PlayerController : MonoBehaviour {
 
 	void GameOver () {
 		var levelManager = GameObject.FindObjectOfType<LevelManager> ();
-		levelManager.LoadLevel("Lose");
+		levelManager.Invoke("LoadNextLevel", 1.5f);
 	}
 }
