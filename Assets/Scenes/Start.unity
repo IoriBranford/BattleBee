@@ -523,6 +523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35779b0d737997a449b08533f17b1297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMusic: {fileID: 8300000, guid: 97b8cc13e69bd384192292a8faa2addb, type: 3}
+  stageMusic: {fileID: 8300000, guid: 5125e2eff336a4d4894396c024d805fc, type: 3}
 --- !u!1 &814094647
 GameObject:
   m_ObjectHideFlags: 0
