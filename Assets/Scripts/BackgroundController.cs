@@ -15,7 +15,7 @@ public class BackgroundController : MonoBehaviour {
 	}
 
 	public float speedY = 1f;
-/*
+
 	private float _maxOffsetX;
 
 	// Use this for initialization
@@ -30,22 +30,25 @@ public class BackgroundController : MonoBehaviour {
 		float width = transform.localScale.x;
 		_maxOffsetX = 1f - (cameraW / width);
 	}
-*/
+
 	// Update is called once per frame
 	void Update () {
 		var renderer = GetComponent<MeshRenderer>();
 		Material material = renderer.material;
 		Vector2 offset = material.mainTextureOffset;
-/*
+
 		var player = GameObject.FindObjectOfType<PlayerController>();
 		var camera = Camera.main;
+		float playerVPX = .5f;
 		if (player && camera) {
 			Vector3 playerVPPos = camera.WorldToViewportPoint(
 					player.transform.position);
 
-			offset.x = playerVPPos.x * _maxOffsetX;
+			playerVPX = playerVPPos.x;
 		}
-*/
+
+		offset.x = playerVPX * _maxOffsetX;
+
 		offset.y += Time.deltaTime * speedY;
 
 		material.mainTextureOffset = offset;
